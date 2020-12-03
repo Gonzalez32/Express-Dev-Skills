@@ -10,7 +10,11 @@ const devCtrl = require('../controllers/devs')
 
 // GET the route for dev index inside Controller/devs.js
 router.get('/', devCtrl.index)
+// GET the route for new inside Contoroller/devs.js
+router.get('/new', devCtrl.new)
 // GET the route for show ID inside Contoroller/dev.js
 router.get('/:id', devCtrl.show)
+// POST the route to create new skill inside Contoroller/dev.js
+router.post('/', devCtrl.create)
 
 module.exports = router;

@@ -9,6 +9,7 @@ const devs = [
 module.exports = {
     getAll,
     getOne,
+    create,
 
 }
 
@@ -18,4 +19,10 @@ function getOne(id) {
 
 function getAll() {
     return devs
+}
+
+function create(id) {
+    id.id = Date.now()*1000000
+    id.done = false
+    devs.push(id)
 }
