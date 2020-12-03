@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/style.css">
     <title>DEV</title>
 </head>
 <body>
@@ -11,6 +12,9 @@
     <ul>
         <% devs.forEach(function(t) { %> 
             <li>
+                <form action="/devs/<%= t.id %>?_method=DELETE" class="delete-form" method="POST">
+                    <button type="submit">X</button>
+                </form>
                 <a href="/devs/<%= t.id %>"><%= t.dev %></a>
                    -
                 <%= t.done ? 'done' : 'not done'  %> 

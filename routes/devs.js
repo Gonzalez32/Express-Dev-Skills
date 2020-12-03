@@ -1,4 +1,5 @@
 var express = require('express');
+const { report } = require('.');
 var router = express.Router();
 // calling the file inside the routes file
 const devCtrl = require('../controllers/devs')
@@ -10,11 +11,13 @@ const devCtrl = require('../controllers/devs')
 
 // GET the route for dev index inside Controller/devs.js
 router.get('/', devCtrl.index)
-// GET the route for new inside Contoroller/devs.js
+// GET the route for new inside Controller/devs.js
 router.get('/new', devCtrl.new)
-// GET the route for show ID inside Contoroller/dev.js
+// GET the route for show ID inside Controller/dev.js
 router.get('/:id', devCtrl.show)
-// POST the route to create new skill inside Contoroller/dev.js
+// POST the route to create new skill inside Controller/dev.js
 router.post('/', devCtrl.create)
+// DELETE  the route inside Controller/dev.js
+router.delete('/:id', devCtrl.delete)
 
 module.exports = router;

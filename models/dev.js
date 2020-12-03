@@ -10,6 +10,7 @@ module.exports = {
     getAll,
     getOne,
     create,
+    deleteOne,
 
 }
 
@@ -25,4 +26,9 @@ function create(id) {
     id.id = Date.now()*1000000
     id.done = false
     devs.push(id)
+}
+
+function deleteOne(id) {
+    const index = devs.findIndex(dev => dev.id === parseInt(id))
+    devs.splice(index, 1)
 }
