@@ -8,6 +8,8 @@ module.exports = {
     new: newSkill,
     create,
     delete: deleteSkill,
+    edit,
+    update,
 }
 
 // Create a function to display All!
@@ -36,4 +38,13 @@ function create(req, res) {
 function deleteSkill(req, res) {
     Dev.deleteOne(req.params.id)
     res.redirect('/devs')
+}
+
+function edit(req, res) {
+    res.render('devs/edit', {dev: Dev.getOne(req.params.id)})
+}
+
+function update(req, res) {
+    Dev.update(req.params.id, req.body)
+    res.redirect(`/devs/${req.params.id}`)
 }

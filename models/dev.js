@@ -11,6 +11,7 @@ module.exports = {
     getOne,
     create,
     deleteOne,
+    update,
 
 }
 
@@ -31,4 +32,10 @@ function create(id) {
 function deleteOne(id) {
     const index = devs.findIndex(dev => dev.id === parseInt(id))
     devs.splice(index, 1)
+}
+
+function update(id, newSkill) {
+    const index = devs.findIndex(dev => dev.id === parseInt(id))
+    devs[index].dev = newSkill.dev
+    devs[index].done = newSkill.done === 'on' ? true : false
 }
